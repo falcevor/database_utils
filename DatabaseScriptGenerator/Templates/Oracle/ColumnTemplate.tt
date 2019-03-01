@@ -1,0 +1,9 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="DatabaseMetadata" #>
+
+<#+
+public void Generate(Column column) 
+{
+#>        <#= column.Name #>,<#+
+}
+#>
