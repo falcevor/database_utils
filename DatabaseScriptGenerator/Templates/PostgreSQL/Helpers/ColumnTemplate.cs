@@ -7,19 +7,18 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace DatabaseScriptGenerator.Templates.Oracle
+namespace DatabaseScriptGenerator.Templates.PostgreSQL.Helpers
 {
     using DatabaseMetadata;
-    using Helpers;
     using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
+    #line 1 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class AddProcedureTemplate : AddProcedureTemplateBase
+    public partial class ColumnTemplate : ColumnTemplateBase
     {
 #line hidden
         /// <summary>
@@ -31,122 +30,162 @@ namespace DatabaseScriptGenerator.Templates.Oracle
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 5 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
+        #line 4 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
 
-public void Generate(string name, string tableName, Column[] columns, Parameter[] prms) 
+public void GenerateWithoutType(ColumnBase[] columns, int indentCount = 0) 
 {
-	// List of table columns
-	var colTempl = new ColumnTemplate();
-	colTempl.GenerateWithoutType(columns, 2);
-	var tableColumns = colTempl.TransformText().TrimEnd();
-
-	// List of rpocedure params
-	var prmTempl = new ColumnTemplate();
-	prmTempl.GenerateWithoutType(prms, 2);
-	var paramList = prmTempl.TransformText().TrimEnd();
+	var indent = "";
+	for (int i = 0; i < indentCount; ++i) indent += "    ";
 	
-	// List of procedure input param descriptions
-	var prmDescTempl = new ColumnTemplate();
-	prmDescTempl.GenerateParameters(prms, 1);
-	var procParams = prmDescTempl.TransformText().TrimEnd();
+	for (int i = 0; i < columns.Length; ++i)
+	{
 
         
         #line default
         #line hidden
         
-        #line 22 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("-- INSERT INTO ");
+        #line 12 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(indent));
 
         
         #line default
         #line hidden
         
-        #line 23 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(tableName));
+        #line 12 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(columns[i].Name));
 
         
         #line default
         #line hidden
         
-        #line 23 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("\r\nCREATE OR REPLACE PROCEDURE ");
+        #line 12 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(i == columns.Length - 1? "" : ",\r\n"));
 
         
         #line default
         #line hidden
         
-        #line 24 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(name));
+        #line 12 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+
+	}
+}
 
         
         #line default
         #line hidden
         
-        #line 24 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("\r\n(\r\n");
+        #line 17 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+
+public void GenerateParameters(Parameter[] prms, int indentCount = 0) 
+{
+	var indent = "";
+	for (int i = 0; i < indentCount; ++i) indent += "    ";
+	
+	for (int i = 0; i < prms.Length; ++i)
+	{
 
         
         #line default
         #line hidden
         
-        #line 26 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(procParams));
+        #line 25 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(indent));
 
         
         #line default
         #line hidden
         
-        #line 26 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("\r\n)\r\nLANGUAGE \'sql\'\r\nAS\r\n$BODY$\r\n    INSERT INTO ");
+        #line 25 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(prms[i].Name));
 
         
         #line default
         #line hidden
         
-        #line 31 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(tableName));
+        #line 25 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 31 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("\r\n    (\r\n");
+        #line 25 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(prms[i].Type));
 
         
         #line default
         #line hidden
         
-        #line 33 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(tableColumns));
+        #line 25 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(i == prms.Length - 1? "" : ",\r\n"));
 
         
         #line default
         #line hidden
         
-        #line 33 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("\r\n    )\r\n    VALUES\r\n    (\r\n");
+        #line 25 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+
+	}
+}
 
         
         #line default
         #line hidden
         
-        #line 37 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(paramList));
+        #line 30 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+
+public void GenerateColumnParametrEquation(Column[] columns, Parameter[] prms, int indentCount = 0, bool isList = true) 
+{
+	var wrapper = isList? ",\r\n" : " AND\n"; 
+	var indent = "";
+	for (int i = 0; i < indentCount; ++i) indent += "    ";
+
+	
+	for (int i = 0; i < columns.Length; ++i)
+	{
 
         
         #line default
         #line hidden
         
-        #line 37 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("\r\n    );\r\n$BODY$;\r\n");
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(indent));
 
         
         #line default
         #line hidden
         
-        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(columns[i].Name));
 
+        
+        #line default
+        #line hidden
+        
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+this.Write(" = ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(prms[i].Name));
+
+        
+        #line default
+        #line hidden
+        
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(i == columns.Length - 1? "" : wrapper));
+
+        
+        #line default
+        #line hidden
+        
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
+
+	}
 }
 
         
@@ -161,7 +200,7 @@ this.Write("\r\n    );\r\n$BODY$;\r\n");
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public class AddProcedureTemplateBase
+    public class ColumnTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

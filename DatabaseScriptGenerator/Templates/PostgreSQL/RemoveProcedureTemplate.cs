@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace DatabaseScriptGenerator.Templates.Oracle
+namespace DatabaseScriptGenerator.Templates.PostgreSQL
 {
     using DatabaseMetadata;
     using Helpers;
@@ -17,9 +17,9 @@ namespace DatabaseScriptGenerator.Templates.Oracle
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
+    #line 1 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class AddProcedureTemplate : AddProcedureTemplateBase
+    public partial class RemoveProcedureTemplate : RemoveProcedureTemplateBase
     {
 #line hidden
         /// <summary>
@@ -27,125 +27,109 @@ namespace DatabaseScriptGenerator.Templates.Oracle
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 5 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
+        #line 4 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
 
-public void Generate(string name, string tableName, Column[] columns, Parameter[] prms) 
+public void Generate(string name, string tableName, Column[] filterColumns, Parameter[] filterPrms) 
 {
-	// List of table columns
-	var colTempl = new ColumnTemplate();
-	colTempl.GenerateWithoutType(columns, 2);
-	var tableColumns = colTempl.TransformText().TrimEnd();
-
-	// List of rpocedure params
-	var prmTempl = new ColumnTemplate();
-	prmTempl.GenerateWithoutType(prms, 2);
-	var paramList = prmTempl.TransformText().TrimEnd();
+	// Filter condition
+	var filter = "";
+	if (filterColumns != null && filterPrms != null)
+	{
+		var filterTempl = new ColumnTemplate();
+		filterTempl.GenerateColumnParametrEquation(filterColumns, filterPrms, 2, false);
+		filter = "    WHERE\n" + filterTempl.TransformText().TrimEnd();
+    }
 	
-	// List of procedure input param descriptions
-	var prmDescTempl = new ColumnTemplate();
-	prmDescTempl.GenerateParameters(prms, 1);
-	var procParams = prmDescTempl.TransformText().TrimEnd();
+	// List of procedure input parameter descriptions
+	var paramsDescTempl = new ColumnTemplate();
+	paramsDescTempl.GenerateParameters(filterPrms, 1);
+	var paramsDesc = paramsDescTempl.TransformText().TrimEnd();
 
         
         #line default
         #line hidden
         
-        #line 22 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("-- INSERT INTO ");
+        #line 20 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
+this.Write("-- DELETE FROM ");
 
         
         #line default
         #line hidden
         
-        #line 23 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
+        #line 21 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(tableName));
 
         
         #line default
         #line hidden
         
-        #line 23 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
+        #line 21 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
 this.Write("\r\nCREATE OR REPLACE PROCEDURE ");
 
         
         #line default
         #line hidden
         
-        #line 24 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
+        #line 22 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(name));
 
         
         #line default
         #line hidden
         
-        #line 24 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
+        #line 22 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
 this.Write("\r\n(\r\n");
 
         
         #line default
         #line hidden
         
-        #line 26 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(procParams));
+        #line 24 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(paramsDesc));
 
         
         #line default
         #line hidden
         
-        #line 26 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("\r\n)\r\nLANGUAGE \'sql\'\r\nAS\r\n$BODY$\r\n    INSERT INTO ");
+        #line 24 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
+this.Write("\r\n)\r\nLANGUAGE \'sql\'\r\nAS\r\n$BODY$\r\n    DELETE FROM ");
 
         
         #line default
         #line hidden
         
-        #line 31 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
+        #line 29 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(tableName));
 
         
         #line default
         #line hidden
         
-        #line 31 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("\r\n    (\r\n");
+        #line 29 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
+this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 33 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(tableColumns));
+        #line 30 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(filter));
 
         
         #line default
         #line hidden
         
-        #line 33 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("\r\n    )\r\n    VALUES\r\n    (\r\n");
+        #line 30 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
+this.Write(";\r\n$BODY$;\r\n");
 
         
         #line default
         #line hidden
         
-        #line 37 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(paramList));
-
-        
-        #line default
-        #line hidden
-        
-        #line 37 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("\r\n    );\r\n$BODY$;\r\n");
-
-        
-        #line default
-        #line hidden
-        
-        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
+        #line 32 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
 
 }
 
@@ -161,7 +145,7 @@ this.Write("\r\n    );\r\n$BODY$;\r\n");
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public class AddProcedureTemplateBase
+    public class RemoveProcedureTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

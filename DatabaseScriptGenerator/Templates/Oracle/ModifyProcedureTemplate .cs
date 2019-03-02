@@ -32,114 +32,126 @@ namespace DatabaseScriptGenerator.Templates.Oracle
         
         #line 4 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
 
-public void Generate(string name, Table table, Parameter[] prms) 
+public void Generate(string name, string tableName, Column[] columns, Parameter[] prms, Column[] filterColumns, Parameter[] filterPrms) 
 {
 	// Parameter-column equations list
 	var eqTempl = new ColumnTemplate();
-	eqTempl.GenerateColumnParametrEquation(table.Columns, prms, 2);
+	eqTempl.GenerateColumnParametrEquation(columns, prms, 2);
 	var equation = eqTempl.TransformText().TrimEnd();
 	
 	// List of procedure input parameter descriptions
+	var allParams = new Parameter[prms.Length + filterPrms.Length];
+	Array.Copy(filterPrms, 0, allParams, 0, filterPrms.Length);
+	Array.Copy(prms, 0, allParams, filterPrms.Length, prms.Length);
 	var prmDescTempl = new ColumnTemplate();
-	prmDescTempl.GenerateParameters(prms, 1);
+	prmDescTempl.GenerateParameters(allParams, 1);
 	var parameters = prmDescTempl.TransformText().TrimEnd();
 
-        
-        #line default
-        #line hidden
-        
-        #line 16 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-this.Write("-- UPDATE ");
-
-        
-        #line default
-        #line hidden
-        
-        #line 17 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(table.Name));
-
-        
-        #line default
-        #line hidden
-        
-        #line 17 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-this.Write("\r\nCREATE OR REPLACE PROCEDURE ");
-
-        
-        #line default
-        #line hidden
-        
-        #line 18 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(name));
-
-        
-        #line default
-        #line hidden
-        
-        #line 18 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-this.Write("\r\n(\r\n");
-
-        
-        #line default
-        #line hidden
-        
-        #line 20 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(parameters));
-
-        
-        #line default
-        #line hidden
-        
-        #line 20 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-this.Write("\r\n)\r\nIS v_c_id NUMBER;\r\nBEGIN\r\n    UPDATE ");
-
-        
-        #line default
-        #line hidden
-        
-        #line 24 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(table.Name));
-
-        
-        #line default
-        #line hidden
-        
-        #line 24 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-this.Write("\r\n    SET\r\n");
-
-        
-        #line default
-        #line hidden
-        
-        #line 26 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(equation));
-
-        
-        #line default
-        #line hidden
-        
-        #line 26 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-this.Write(";\r\nEND ");
-
-        
-        #line default
-        #line hidden
-        
-        #line 27 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(name));
-
-        
-        #line default
-        #line hidden
-        
-        #line 27 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-this.Write(";\r\n");
+	// Filter condition
+	var filter = "";
+	if (filterColumns != null && filterPrms != null)
+	{
+		var filterTempl = new ColumnTemplate();
+		filterTempl.GenerateColumnParametrEquation(filterColumns, filterPrms, 2, false);
+		filter = "    WHERE\n" + filterTempl.TransformText().TrimEnd();
+    }
 
         
         #line default
         #line hidden
         
         #line 28 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
+this.Write("-- UPDATE ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 29 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(tableName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 29 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
+this.Write("\r\nCREATE OR REPLACE PROCEDURE ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 30 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(name));
+
+        
+        #line default
+        #line hidden
+        
+        #line 30 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
+this.Write("\r\n(\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 32 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(parameters));
+
+        
+        #line default
+        #line hidden
+        
+        #line 32 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
+this.Write("\r\n)\r\nLANGUAGE \'sql\'\r\nAS\r\n$BODY$\r\n    UPDATE ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 37 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(tableName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 37 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
+this.Write("\r\n    SET\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 39 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(equation));
+
+        
+        #line default
+        #line hidden
+        
+        #line 39 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
+this.Write("\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(filter));
+
+        
+        #line default
+        #line hidden
+        
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
+this.Write(";\r\n$BODY$;\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 42 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
 
 }
 

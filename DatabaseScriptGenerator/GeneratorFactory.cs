@@ -9,11 +9,11 @@ namespace DatabaseScriptGenerator
             switch (type)
             {
                 case DataProviderTypes.PostgreSQL:
-                    return null;
+                    return new PosrgreSqlGenerator();
                 case DataProviderTypes.Oracle:
                     return new OracleGenerator();
                 case DataProviderTypes.MSSqlServer:
-                    return null;
+                    throw new NotSupportedException(type.ToString());
                 default:
                     throw new NotSupportedException(type.ToString());
             }

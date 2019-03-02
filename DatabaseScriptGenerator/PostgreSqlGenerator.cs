@@ -1,10 +1,10 @@
 ﻿using System;
 using DatabaseMetadata;
-using DatabaseScriptGenerator.Templates.Oracle;
+using DatabaseScriptGenerator.Templates.PostgreSQL;
 
 namespace DatabaseScriptGenerator
 {
-    internal class OracleGenerator : IGenerator
+    internal class PosrgreSqlGenerator : IGenerator
     {
         public string GenerateFunctionScript(FunctionActionTypes action, GeneratorParameters parameters)
         {
