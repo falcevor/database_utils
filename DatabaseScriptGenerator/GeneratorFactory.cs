@@ -4,25 +4,19 @@ namespace DatabaseScriptGenerator
 {
     public static class GeneratorFactory
     {
-        public static IGenerator Create(DataProviderTypes type, string connectionString)
+        public static IGenerator Create(DataProviderTypes type)
         {
-            IGenerator instance = null;
             switch (type)
             {
                 case DataProviderTypes.PostgreSQL:
-                    instance = null;
-                    break;
+                    return null;
                 case DataProviderTypes.Oracle:
-                    instance = new OracleGenerator();
-                    break;
+                    return new OracleGenerator();
                 case DataProviderTypes.MSSqlServer:
-                    instance = null;
-                    break;
+                    return null;
                 default:
                     throw new NotSupportedException(type.ToString());
             }
-            instance.Connect(connectionString);
-            return instance;
         }
     }
 

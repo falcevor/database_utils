@@ -1,34 +1,40 @@
 ﻿<#@ template language="C#" #>
 <#@ import namespace="DatabaseMetadata" #>
+<#@ import namespace="Helpers" #>
 
 <#+
 public void Generate(string name, Table table, Parameter[] prms) 
 {
+	// List of table columns
 	var colTempl = new ColumnTemplate();
 	colTempl.GenerateWithoutType(table.Columns, 2);
+	var tableColumns = colTempl.TransformText().TrimEnd();
 
-	var prmTempl = new ParameterTemplate();
+	// List of rpocedure params
+	var prmTempl = new ColumnTemplate();
 	prmTempl.GenerateWithoutType(prms, 2);
+	var paramList = prmTempl.TransformText().TrimEnd();
+	
+	// List of procedure input param descriptions
+	var prmDescTempl = new ColumnTemplate();
+	prmDescTempl.GenerateParameters(prms, 1);
+	var procParams = prmDescTempl.TransformText().TrimEnd();
 #>
-
+-- INSERT INTO <#= table.Name #>
 CREATE OR REPLACE PROCEDURE <#= name #>
 (
-	p_cbp_id           number,
-    p_date_from        date,
-    p_date_to          date,
-    p_parent_request   out clob,
-    p_parent_response  out clob,
-    p_sc_decomposition out clob,
-    p_childs           out sys_refcursor
-) 
+<#= procParams #>
+)
 IS v_c_id NUMBER;
 BEGIN
     INSERT INTO <#= table.Name #>
     (
-<#= colTempl.TransformText() #>    )
+<#= tableColumns #>
+    )
     VALUES
     (
-<#= prmTempl.TransformText() #>    );
+<#= paramList #>
+    );
 END <#= name #>;
 <#+
 }

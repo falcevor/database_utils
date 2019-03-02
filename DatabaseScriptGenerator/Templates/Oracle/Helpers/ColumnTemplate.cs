@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace DatabaseScriptGenerator.Templates.Oracle
+namespace DatabaseScriptGenerator.Templates.Oracle.Helpers
 {
     using DatabaseMetadata;
     using System;
@@ -16,7 +16,7 @@ namespace DatabaseScriptGenerator.Templates.Oracle
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
+    #line 1 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ColumnTemplate : ColumnTemplateBase
     {
@@ -30,47 +30,9 @@ namespace DatabaseScriptGenerator.Templates.Oracle
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 4 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
+        #line 4 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
 
-public void Generate(Column column) 
-{
-
-        
-        #line default
-        #line hidden
-        
-        #line 7 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
-this.Write("        ");
-
-        
-        #line default
-        #line hidden
-        
-        #line 7 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(column.Name));
-
-        
-        #line default
-        #line hidden
-        
-        #line 7 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
-this.Write(",");
-
-        
-        #line default
-        #line hidden
-        
-        #line 7 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
-
-}
-
-        
-        #line default
-        #line hidden
-        
-        #line 11 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
-
-public void GenerateWithoutType(Column[] columns, int indentCount = 0) 
+public void GenerateWithoutType(ColumnBase[] columns, int indentCount = 0) 
 {
 	var indent = "";
 	for (int i = 0; i < indentCount; ++i) indent += "    ";
@@ -82,28 +44,146 @@ public void GenerateWithoutType(Column[] columns, int indentCount = 0)
         #line default
         #line hidden
         
-        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
+        #line 12 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(indent));
 
         
         #line default
         #line hidden
         
-        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
+        #line 12 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(columns[i].Name));
 
         
         #line default
         #line hidden
         
-        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(i == columns.Length - 1? "" : ",\n"));
+        #line 12 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(i == columns.Length - 1? "" : ",\r\n"));
 
         
         #line default
         #line hidden
         
-        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
+        #line 12 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+
+	}
+}
+
+        
+        #line default
+        #line hidden
+        
+        #line 17 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+
+public void GenerateParameters(Parameter[] prms, int indentCount = 0) 
+{
+	var indent = "";
+	for (int i = 0; i < indentCount; ++i) indent += "    ";
+	
+	for (int i = 0; i < prms.Length; ++i)
+	{
+
+        
+        #line default
+        #line hidden
+        
+        #line 25 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(indent));
+
+        
+        #line default
+        #line hidden
+        
+        #line 25 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(prms[i].Name));
+
+        
+        #line default
+        #line hidden
+        
+        #line 25 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+this.Write(" ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 25 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(prms[i].Type));
+
+        
+        #line default
+        #line hidden
+        
+        #line 25 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(i == prms.Length - 1? "" : ",\r\n"));
+
+        
+        #line default
+        #line hidden
+        
+        #line 25 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+
+	}
+}
+
+        
+        #line default
+        #line hidden
+        
+        #line 30 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+
+public void GenerateColumnParametrEquation(Column[] columns, Parameter[] prms, int indentCount = 0, bool isList = true) 
+{
+	var wrapper = isList? ",\r\n" : " AND\n"; 
+	var indent = "";
+	for (int i = 0; i < indentCount; ++i) indent += "    ";
+
+	
+	for (int i = 0; i < columns.Length; ++i)
+	{
+
+        
+        #line default
+        #line hidden
+        
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(indent));
+
+        
+        #line default
+        #line hidden
+        
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(columns[i].Name));
+
+        
+        #line default
+        #line hidden
+        
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+this.Write(" = ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(prms[i].Name));
+
+        
+        #line default
+        #line hidden
+        
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(i == columns.Length - 1? "" : wrapper));
+
+        
+        #line default
+        #line hidden
+        
+        #line 40 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\Helpers\ColumnTemplate.tt"
 
 	}
 }

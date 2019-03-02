@@ -10,15 +10,16 @@
 namespace DatabaseScriptGenerator.Templates.Oracle
 {
     using DatabaseMetadata;
+    using Helpers;
     using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
+    #line 1 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class ParameterTemplate : ParameterTemplateBase
+    public partial class RemoveProcedureTemplate : RemoveProcedureTemplateBase
     {
 #line hidden
         /// <summary>
@@ -26,86 +27,120 @@ namespace DatabaseScriptGenerator.Templates.Oracle
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 4 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
+        #line 4 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
 
-public void Generate(Parameter param) 
+public void Generate(string name, Table table, Parameter[] prms) 
 {
-
-        
-        #line default
-        #line hidden
-        
-        #line 7 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
-this.Write("        ");
-
-        
-        #line default
-        #line hidden
-        
-        #line 7 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(param.Name));
-
-        
-        #line default
-        #line hidden
-        
-        #line 7 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
-this.Write(",");
-
-        
-        #line default
-        #line hidden
-        
-        #line 7 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
-
-}
-
-        
-        #line default
-        #line hidden
-        
-        #line 11 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
-
-public void GenerateWithoutType(Parameter[] prms, int indentCount = 0) 
-{
-	var indent = "";
-	for (int i = 0; i < indentCount; ++i) indent += "    ";
+	// Parameter-column equation statement
+	var eqTempl = new ColumnTemplate();
+	eqTempl.GenerateColumnParametrEquation(table.Columns, prms, 2, false);
+	var equation = eqTempl.TransformText().TrimEnd();
 	
-	for (int i = 0; i < prms.Length; ++i)
-	{
+	// List of procedure input parameter descriptions
+	var paramsDescTempl = new ColumnTemplate();
+	paramsDescTempl.GenerateParameters(prms, 1);
+	var paramsDesc = paramsDescTempl.TransformText().TrimEnd();
 
         
         #line default
         #line hidden
         
-        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(indent));
+        #line 16 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+this.Write("-- DELETE FROM ");
 
         
         #line default
         #line hidden
         
-        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(prms[i].Name));
+        #line 17 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(table.Name));
 
         
         #line default
         #line hidden
         
-        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(i == prms.Length - 1? "" : ",\n"));
+        #line 17 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+this.Write("\r\nCREATE OR REPLACE PROCEDURE ");
 
         
         #line default
         #line hidden
         
-        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
+        #line 18 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(name));
 
-	}
+        
+        #line default
+        #line hidden
+        
+        #line 18 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+this.Write("\r\n(\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 20 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(paramsDesc));
+
+        
+        #line default
+        #line hidden
+        
+        #line 20 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+this.Write("\r\n)\r\nIS v_c_id NUMBER;\r\nBEGIN\r\n    DELETE FROM ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 24 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(table.Name));
+
+        
+        #line default
+        #line hidden
+        
+        #line 24 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+this.Write("\r\n    WHERE\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 26 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(equation));
+
+        
+        #line default
+        #line hidden
+        
+        #line 26 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+this.Write(";\r\nEND ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 27 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(name));
+
+        
+        #line default
+        #line hidden
+        
+        #line 27 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+this.Write(";\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 28 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\RemoveProcedureTemplate.tt"
+
 }
 
         
@@ -120,7 +155,7 @@ this.Write(this.ToStringHelper.ToStringWithCulture(i == prms.Length - 1? "" : ",
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public class ParameterTemplateBase
+    public class RemoveProcedureTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

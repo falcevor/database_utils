@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
-      <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,34 +45,43 @@
     <Compile Include="IGenerator.cs" />
     <Compile Include="OracleGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\Oracle\ModifyProcedureTemplate .cs">
+      <DependentUpon>ModifyProcedureTemplate .tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Templates\Oracle\RemoveProcedureTemplate.cs">
+      <DependentUpon>RemoveProcedureTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Templates\Oracle\AddProcedureTemplate.cs">
       <DependentUpon>AddProcedureTemplate.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Templates\Oracle\ColumnTemplate.cs">
+    <Compile Include="Templates\Oracle\Helpers\ColumnTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ColumnTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Templates\Oracle\ParameterTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ParameterTemplate.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Templates\Oracle\ModifyProcedureTemplate .tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ModifyProcedureTemplate .cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\Oracle\RemoveProcedureTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RemoveProcedureTemplate.cs</LastGenOutput>
+    </Content>
     <Content Include="Templates\Oracle\AddProcedureTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AddProcedureTemplate.cs</LastGenOutput>
     </Content>
-    <Content Include="Templates\Oracle\ColumnTemplate.tt">
+    <Content Include="Templates\Oracle\Helpers\ColumnTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ColumnTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Include="Templates\Oracle\ParameterTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ParameterTemplate.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -83,7 +89,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseMetadata\DatabaseMetadata.csproj">

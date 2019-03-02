@@ -1,0 +1,43 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="DatabaseMetadata" #>
+
+<#+
+public void GenerateWithoutType(ColumnBase[] columns, int indentCount = 0) 
+{
+	var indent = "";
+	for (int i = 0; i < indentCount; ++i) indent += "    ";
+	
+	for (int i = 0; i < columns.Length; ++i)
+	{
+#><#= indent #><#= columns[i].Name #><#= i == columns.Length - 1? "" : ",\r\n"#><#+
+	}
+}
+#>
+
+<#+
+public void GenerateParameters(Parameter[] prms, int indentCount = 0) 
+{
+	var indent = "";
+	for (int i = 0; i < indentCount; ++i) indent += "    ";
+	
+	for (int i = 0; i < prms.Length; ++i)
+	{
+#><#= indent #><#= prms[i].Name #> <#= prms[i].Type #><#= i == prms.Length - 1? "" : ",\r\n"#><#+
+	}
+}
+#>
+
+<#+
+public void GenerateColumnParametrEquation(Column[] columns, Parameter[] prms, int indentCount = 0, bool isList = true) 
+{
+	var wrapper = isList? ",\r\n" : " AND\n"; 
+	var indent = "";
+	for (int i = 0; i < indentCount; ++i) indent += "    ";
+
+	
+	for (int i = 0; i < columns.Length; ++i)
+	{
+#><#= indent #><#= columns[i].Name #> = <#= prms[i].Name #><#= i == columns.Length - 1? "" : wrapper#><#+
+	}
+}
+#>

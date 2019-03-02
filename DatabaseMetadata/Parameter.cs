@@ -3,9 +3,7 @@
 namespace DatabaseMetadata
 {
     [XmlRoot]
-    public class Parameter
+    public class Parameter : ColumnBase
     {
-        [XmlAttribute]
-        public string Name { get; set; }
     }
 }

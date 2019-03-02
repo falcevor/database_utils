@@ -1,0 +1,30 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="DatabaseMetadata" #>
+<#@ import namespace="Helpers" #>
+<#+
+public void Generate(string name, Table table, Parameter[] prms) 
+{
+	// Parameter-column equation statement
+	var eqTempl = new ColumnTemplate();
+	eqTempl.GenerateColumnParametrEquation(table.Columns, prms, 2, false);
+	var equation = eqTempl.TransformText().TrimEnd();
+	
+	// List of procedure input parameter descriptions
+	var paramsDescTempl = new ColumnTemplate();
+	paramsDescTempl.GenerateParameters(prms, 1);
+	var paramsDesc = paramsDescTempl.TransformText().TrimEnd();
+#>
+-- DELETE FROM <#= table.Name #>
+CREATE OR REPLACE PROCEDURE <#= name #>
+(
+<#= paramsDesc #>
+)
+IS v_c_id NUMBER;
+BEGIN
+    DELETE FROM <#= table.Name #>
+    WHERE
+<#= equation #>;
+END <#= name #>;
+<#+
+}
+#>

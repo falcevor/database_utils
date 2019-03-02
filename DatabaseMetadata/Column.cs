@@ -2,9 +2,7 @@
 namespace DatabaseMetadata
 {
     [XmlRoot]
-    public class Column
+    public class Column : ColumnBase
     {
-        [XmlAttribute]
-        public string Name { get; set; }
     }
 }
