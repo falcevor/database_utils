@@ -67,6 +67,50 @@ this.Write(",");
         
         #line default
         #line hidden
+        
+        #line 11 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
+
+public void GenerateWithoutType(Column[] columns, int indentCount = 0) 
+{
+	var indent = "";
+	for (int i = 0; i < indentCount; ++i) indent += "    ";
+	
+	for (int i = 0; i < columns.Length; ++i)
+	{
+
+        
+        #line default
+        #line hidden
+        
+        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(indent));
+
+        
+        #line default
+        #line hidden
+        
+        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(columns[i].Name));
+
+        
+        #line default
+        #line hidden
+        
+        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(i == columns.Length - 1? "" : ",\n"));
+
+        
+        #line default
+        #line hidden
+        
+        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ColumnTemplate.tt"
+
+	}
+}
+
+        
+        #line default
+        #line hidden
     }
     
     #line default

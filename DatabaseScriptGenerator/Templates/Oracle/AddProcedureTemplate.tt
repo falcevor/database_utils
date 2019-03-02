@@ -2,28 +2,34 @@
 <#@ import namespace="DatabaseMetadata" #>
 
 <#+
-public void Generate(string name, Table table) 
-{
-#>
-CREATE OR REPLACE PROCEDURE <#= name #>(p_cbp_id           number,
-                                 p_date_from        date,
-                                 p_date_to          date,
-                                 p_parent_request   out clob,
-                                 p_parent_response  out clob,
-                                 p_sc_decomposition out clob,
-                                 p_childs           out sys_refcursor) is
-  v_c_id number;
-begin
-    SELECT
-<#+ foreach (var column in table.Columns)
+public void Generate(string name, Table table, Parameter[] prms) 
 {
 	var colTempl = new ColumnTemplate();
-	colTempl.Generate(column);
-	#><#= colTempl.TransformText() #><#+
-}
+	colTempl.GenerateWithoutType(table.Columns, 2);
+
+	var prmTempl = new ParameterTemplate();
+	prmTempl.GenerateWithoutType(prms, 2);
 #>
-    FROM <#= table.Name #>;
-end <#= name #>;
+
+CREATE OR REPLACE PROCEDURE <#= name #>
+(
+	p_cbp_id           number,
+    p_date_from        date,
+    p_date_to          date,
+    p_parent_request   out clob,
+    p_parent_response  out clob,
+    p_sc_decomposition out clob,
+    p_childs           out sys_refcursor
+) 
+IS v_c_id NUMBER;
+BEGIN
+    INSERT INTO <#= table.Name #>
+    (
+<#= colTempl.TransformText() #>    )
+    VALUES
+    (
+<#= prmTempl.TransformText() #>    );
+END <#= name #>;
 <#+
 }
 #>

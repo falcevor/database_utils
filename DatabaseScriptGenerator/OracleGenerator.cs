@@ -14,15 +14,15 @@ namespace DatabaseScriptGenerator
             //_connection = new OracleConnection(connectionString);
         }
 
-        public string GenerateFunctionScript(FunctionActionTypes action, string name, Table table)
+        public string GenerateFunctionScript(FunctionActionTypes action, string name, Table table, Parameter[] prms)
         {
             throw new NotImplementedException();
         }
 
-        public string GenerateProcedureScript(ProcedureActionTypes action, string name, Table table)
+        public string GenerateProcedureScript(ProcedureActionTypes action, string name, Table table, Parameter[] prms)
         {
             AddProcedureTemplate template = new AddProcedureTemplate();
-            template.Generate(name, table);
+            template.Generate(name, table, prms);
             return template.TransformText();
         }
 

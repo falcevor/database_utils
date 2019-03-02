@@ -1,0 +1,22 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="DatabaseMetadata" #>
+
+<#+
+public void Generate(Parameter param) 
+{
+#>        <#= param.Name #>,<#+
+}
+#>
+
+<#+
+public void GenerateWithoutType(Parameter[] prms, int indentCount = 0) 
+{
+	var indent = "";
+	for (int i = 0; i < indentCount; ++i) indent += "    ";
+	
+	for (int i = 0; i < prms.Length; ++i)
+	{
+#><#= indent #><#= prms[i].Name #><#= i == prms.Length - 1? "" : ",\n"#><#+
+	}
+}
+#>

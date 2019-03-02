@@ -7,3 +7,16 @@ public void Generate(Column column)
 #>        <#= column.Name #>,<#+
 }
 #>
+
+<#+
+public void GenerateWithoutType(Column[] columns, int indentCount = 0) 
+{
+	var indent = "";
+	for (int i = 0; i < indentCount; ++i) indent += "    ";
+	
+	for (int i = 0; i < columns.Length; ++i)
+	{
+#><#= indent #><#= columns[i].Name #><#= i == columns.Length - 1? "" : ",\n"#><#+
+	}
+}
+#>

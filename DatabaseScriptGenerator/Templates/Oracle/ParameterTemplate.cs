@@ -16,9 +16,9 @@ namespace DatabaseScriptGenerator.Templates.Oracle
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
+    #line 1 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class AddProcedureTemplate : AddProcedureTemplateBase
+    public partial class ParameterTemplate : ParameterTemplateBase
     {
 #line hidden
         /// <summary>
@@ -30,111 +30,82 @@ namespace DatabaseScriptGenerator.Templates.Oracle
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 4 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
+        #line 4 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
 
-public void Generate(string name, Table table, Parameter[] prms) 
+public void Generate(Parameter param) 
 {
-	var colTempl = new ColumnTemplate();
-	colTempl.GenerateWithoutType(table.Columns, 2);
-
-	var prmTempl = new ParameterTemplate();
-	prmTempl.GenerateWithoutType(prms, 2);
 
         
         #line default
         #line hidden
         
-        #line 12 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("\r\nCREATE OR REPLACE PROCEDURE ");
+        #line 7 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
+this.Write("        ");
 
         
         #line default
         #line hidden
         
-        #line 14 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(name));
+        #line 7 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(param.Name));
 
         
         #line default
         #line hidden
         
-        #line 14 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(@"
-(
-	p_cbp_id           number,
-    p_date_from        date,
-    p_date_to          date,
-    p_parent_request   out clob,
-    p_parent_response  out clob,
-    p_sc_decomposition out clob,
-    p_childs           out sys_refcursor
-) 
-IS v_c_id NUMBER;
-BEGIN
-    INSERT INTO ");
+        #line 7 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
+this.Write(",");
 
         
         #line default
         #line hidden
         
-        #line 26 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(table.Name));
+        #line 7 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
+
+}
 
         
         #line default
         #line hidden
         
-        #line 26 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("\r\n    (\r\n");
+        #line 11 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
+
+public void GenerateWithoutType(Parameter[] prms, int indentCount = 0) 
+{
+	var indent = "";
+	for (int i = 0; i < indentCount; ++i) indent += "    ";
+	
+	for (int i = 0; i < prms.Length; ++i)
+	{
 
         
         #line default
         #line hidden
         
-        #line 28 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(colTempl.TransformText()));
+        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(indent));
 
         
         #line default
         #line hidden
         
-        #line 28 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("    )\r\n    VALUES\r\n    (\r\n");
+        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(prms[i].Name));
 
         
         #line default
         #line hidden
         
-        #line 31 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(prmTempl.TransformText()));
+        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(i == prms.Length - 1? "" : ",\n"));
 
         
         #line default
         #line hidden
         
-        #line 31 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write("    );\r\nEND ");
+        #line 19 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ParameterTemplate.tt"
 
-        
-        #line default
-        #line hidden
-        
-        #line 32 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(name));
-
-        
-        #line default
-        #line hidden
-        
-        #line 32 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-this.Write(";\r\n");
-
-        
-        #line default
-        #line hidden
-        
-        #line 33 "C:\Users\drlukino\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-
+	}
 }
 
         
@@ -149,7 +120,7 @@ this.Write(";\r\n");
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public class AddProcedureTemplateBase
+    public class ParameterTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

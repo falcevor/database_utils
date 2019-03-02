@@ -6,8 +6,8 @@ namespace DatabaseScriptGenerator
     {
         void Connect(string connectionString);
         string GenerateViewScript(string name, Table table);
-        string GenerateProcedureScript(ProcedureActionTypes action, string name, Table table);
-        string GenerateFunctionScript(FunctionActionTypes action, string name, Table table);
+        string GenerateProcedureScript(ProcedureActionTypes action, string name, Table table, Parameter[] prms);
+        string GenerateFunctionScript(FunctionActionTypes action, string name, Table table, Parameter[] prms);
     }
 
     public enum ProcedureActionTypes

@@ -58,6 +58,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ColumnTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="Templates\Oracle\ParameterTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ParameterTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Templates\Oracle\AddProcedureTemplate.tt">
@@ -67,6 +72,10 @@
     <Content Include="Templates\Oracle\ColumnTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ColumnTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\Oracle\ParameterTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ParameterTemplate.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
