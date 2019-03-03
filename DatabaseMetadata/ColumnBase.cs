@@ -8,7 +8,7 @@ namespace DatabaseMetadata
         [XmlAttribute]
         public string Name { get; set; }
 
-        [XmlAttribute]
-        public string Type { get; set; }
+        [XmlElement]
+        public DataType Type { get; set; }
     }
 }

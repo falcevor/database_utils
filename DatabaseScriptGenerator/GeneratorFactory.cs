@@ -19,11 +19,4 @@ namespace DatabaseScriptGenerator
             }
         }
     }
-
-    public enum DataProviderTypes
-    {
-        PostgreSQL,
-        Oracle,
-        MSSqlServer
-    }
 }

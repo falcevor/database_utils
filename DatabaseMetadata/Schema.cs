@@ -3,12 +3,12 @@
 namespace DatabaseMetadata
 {
     [XmlRoot]
-    public class Table
+    public class Schema
     {
         [XmlAttribute]
         public string Name { get; set; }
-        
+
         [XmlArrayItem]
-        public Column[] Columns { get; set; }
+        public Table[] Tables { get; set; }
     }
 }
