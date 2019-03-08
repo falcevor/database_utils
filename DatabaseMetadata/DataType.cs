@@ -22,17 +22,16 @@ namespace DatabaseMetadata
         {
             var sb = new StringBuilder();
             sb.Append(Name);
-            if (Length > 0)
+            if (Length <= 0) return sb.ToString();
+
+            sb.Append("(");
+            sb.Append(Length);
+            if (Precision > 0)
             {
-                sb.Append("(");
-                sb.Append(Length);
-                if (Precision > 0)
-                {
-                    sb.Append(", ");
-                    sb.Append(Precision);
-                }
-                sb.Append(")");
+                sb.Append(", ");
+                sb.Append(Precision);
             }
+            sb.Append(")");
             return sb.ToString();
         }
     }

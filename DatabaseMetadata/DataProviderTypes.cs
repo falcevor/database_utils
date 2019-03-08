@@ -1,6 +1,9 @@
-﻿public enum DataProviderTypes
+﻿namespace DatabaseMetadata
 {
-    PostgreSQL,
-    Oracle,
-    MSSqlServer
+    public enum DataProviderTypes
+    {
+        PostgreSql,
+        Oracle,
+        MsSqlServer
+    }
 }

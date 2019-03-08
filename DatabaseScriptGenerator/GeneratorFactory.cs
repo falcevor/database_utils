@@ -1,4 +1,5 @@
 ﻿using System;
+using DatabaseMetadata;
 
 namespace DatabaseScriptGenerator
 {
@@ -8,11 +9,11 @@ namespace DatabaseScriptGenerator
         {
             switch (type)
             {
-                case DataProviderTypes.PostgreSQL:
-                    return new PosrgreSqlGenerator();
+                case DataProviderTypes.PostgreSql:
+                    return new PostgreSqlGenerator();
                 case DataProviderTypes.Oracle:
                     return new OracleGenerator();
-                case DataProviderTypes.MSSqlServer:
+                case DataProviderTypes.MsSqlServer:
                     throw new NotSupportedException(type.ToString());
                 default:
                     throw new NotSupportedException(type.ToString());
