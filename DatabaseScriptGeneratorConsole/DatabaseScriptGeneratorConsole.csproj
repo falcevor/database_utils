@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DatabaseMetadataProvider\DatabaseMetadataProvider.csproj">
+      <Project>{d55b5fd6-5eb8-4070-8df3-3b1fdc273abe}</Project>
+      <Name>DatabaseMetadataProvider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DatabaseMetadata\DatabaseMetadata.csproj">
       <Project>{2d457134-f47a-4f4c-8a72-6b4dacec51d5}</Project>
       <Name>DatabaseMetadata</Name>

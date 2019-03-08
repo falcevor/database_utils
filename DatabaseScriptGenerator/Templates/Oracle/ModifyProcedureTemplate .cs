@@ -18,8 +18,8 @@ namespace DatabaseScriptGenerator.Templates.Oracle
     /// </summary>
     
     #line 1 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\ModifyProcedureTemplate .tt"
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class ModifyProcedureTemplate  : ModifyProcedureTemplateBase
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
+    public class ModifyProcedureTemplate  : ModifyProcedureTemplateBase
     {
 #line hidden
         /// <summary>

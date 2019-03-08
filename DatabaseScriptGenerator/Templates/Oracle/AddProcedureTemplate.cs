@@ -11,15 +11,14 @@ namespace DatabaseScriptGenerator.Templates.Oracle
 {
     using DatabaseMetadata;
     using Helpers;
-    using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
     #line 1 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\Oracle\AddProcedureTemplate.tt"
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class AddProcedureTemplate : AddProcedureTemplateBase
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
+    public class AddProcedureTemplate : AddProcedureTemplateBase
     {
 #line hidden
         /// <summary>

@@ -10,15 +10,14 @@
 namespace DatabaseScriptGenerator.Templates.PostgreSQL.Helpers
 {
     using DatabaseMetadata;
-    using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
     #line 1 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\Helpers\ColumnTemplate.tt"
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class ColumnTemplate : ColumnTemplateBase
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
+    public class ColumnTemplate : ColumnTemplateBase
     {
 #line hidden
         /// <summary>

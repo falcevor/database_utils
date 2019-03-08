@@ -11,15 +11,14 @@ namespace DatabaseScriptGenerator.Templates.PostgreSQL
 {
     using DatabaseMetadata;
     using Helpers;
-    using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
     #line 1 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\RemoveProcedureTemplate.tt"
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class RemoveProcedureTemplate : RemoveProcedureTemplateBase
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
+    public class RemoveProcedureTemplate : RemoveProcedureTemplateBase
     {
 #line hidden
         /// <summary>

@@ -18,8 +18,8 @@ namespace DatabaseScriptGenerator.Templates.PostgreSQL
     /// </summary>
     
     #line 1 "C:\Users\admin\source\repos\DatabaseUtils\DatabaseScriptGenerator\Templates\PostgreSQL\ModifyProcedureTemplate .tt"
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class ModifyProcedureTemplate  : ModifyProcedureTemplateBase
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
+    public class ModifyProcedureTemplate  : ModifyProcedureTemplateBase
     {
 #line hidden
         /// <summary>
