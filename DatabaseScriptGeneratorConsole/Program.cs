@@ -5,18 +5,18 @@ using System.Xml.Serialization;
 
 namespace DatabaseScriptGeneratorConsole
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var columns = new Column[] { new Column() { Name = "column1", Type = new DataType() { Name = "INTEGER" } }, new Column() { Name = "column2", Type = new DataType() { Name = "VARCHARH", Length = 2000 } } };
-            var prms = new Parameter[] { new Parameter() { Name = "p_column1", Type = new DataType() { Name = "INTEGER" } }, new Parameter() { Name = "p_column2", Type = new DataType() { Name = "VARCHARH", Length = 2000 } } };
+            var columns = new Column[] { new Column() { Name = "column1", Type = new DataType() { Name = "INTEGER" } }, new Column() { Name = "column2", Type = new DataType() { Name = "VARCHAR", Length = 2000 } } };
+            var parameters = new Parameter[] { new Parameter() { Name = "p_column1", Type = new DataType() { Name = "INTEGER" } }, new Parameter() { Name = "p_column2", Type = new DataType() { Name = "VARCHAR", Length = 2000 } } };
             var table = new Table() { Name = "tableName", Columns = columns };
-            var parameters = new GeneratorParameters()
+            var generatorParameters = new GeneratorParameters()
             {
                 Name = "test_procedure",
                 Columns = table.Columns,
-                Parameters = prms,
+                Parameters = parameters,
                 TableName = "test_table_name",
                 FilterColumns = new Column[] { columns[0] },
                 FilterParameters = new Parameter[] { new Parameter() { Name = "p_column3", Type = new DataType() { Name = "INTEGER" } } }
@@ -26,11 +26,11 @@ namespace DatabaseScriptGeneratorConsole
             Console.WriteLine("\r\n");
 
             var generator = GeneratorFactory.Create(DataProviderTypes.Oracle);
-            Console.WriteLine(generator.GenerateProcedureScript(ProcedureActionTypes.Add, parameters));
+            Console.WriteLine(generator.GenerateProcedureScript(ProcedureActionTypes.Add, generatorParameters));
             Console.WriteLine();
-            Console.WriteLine(generator.GenerateProcedureScript(ProcedureActionTypes.Modify, parameters));
+            Console.WriteLine(generator.GenerateProcedureScript(ProcedureActionTypes.Modify, generatorParameters));
             Console.WriteLine();
-            Console.WriteLine(generator.GenerateProcedureScript(ProcedureActionTypes.Remove, parameters));
+            Console.WriteLine(generator.GenerateProcedureScript(ProcedureActionTypes.Remove, generatorParameters));
         }
     }
 }
