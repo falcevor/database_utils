@@ -94,4 +94,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseMetadata\DatabaseMetadata.csproj" />
+  </ItemGroup>
 </Project>

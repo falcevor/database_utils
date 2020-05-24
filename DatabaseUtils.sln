@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseScriptGenerator", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseScriptGeneratorConsole", "DatabaseScriptGeneratorConsole\DatabaseScriptGeneratorConsole.csproj", "{7D4D002B-F059-46EE-81DA-86E817ED9F7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseMetadata", "DatabaseMetadata\DatabaseMetadata.csproj", "{2D457134-F47A-4F4C-8A72-6B4DACEC51D5}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseMetadataProvider", "DatabaseMetadataProvider\DatabaseMetadataProvider.csproj", "{D55B5FD6-5EB8-4070-8DF3-3B1FDC273ABE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6BFABBF2-E39C-4B2F-8DB9-2CF49A95922C}"
@@ -30,6 +32,10 @@ Global
 		{7D4D002B-F059-46EE-81DA-86E817ED9F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D4D002B-F059-46EE-81DA-86E817ED9F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D4D002B-F059-46EE-81DA-86E817ED9F7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D457134-F47A-4F4C-8A72-6B4DACEC51D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D457134-F47A-4F4C-8A72-6B4DACEC51D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D457134-F47A-4F4C-8A72-6B4DACEC51D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D457134-F47A-4F4C-8A72-6B4DACEC51D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D55B5FD6-5EB8-4070-8DF3-3B1FDC273ABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D55B5FD6-5EB8-4070-8DF3-3B1FDC273ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D55B5FD6-5EB8-4070-8DF3-3B1FDC273ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
