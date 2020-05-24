@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
+  
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <RootNamespace>DatabaseScriptGeneratorConsole</RootNamespace>
     <AssemblyName>DatabaseScriptGeneratorConsole</AssemblyName>
     <TargetFramework>net472</TargetFramework>
   </PropertyGroup>
+  
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -16,12 +18,15 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+  
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\DatabaseMetadataProvider\DatabaseMetadataProvider.csproj" />
     <ProjectReference Include="..\DatabaseMetadata\DatabaseMetadata.csproj" />
     <ProjectReference Include="..\DatabaseScriptGenerator\DatabaseScriptGenerator.csproj" />
   </ItemGroup>
+  
 </Project>

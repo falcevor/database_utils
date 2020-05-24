@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseScriptGenerator", "DatabaseScriptGenerator\DatabaseScriptGenerator.csproj", "{66E94349-FC34-4BD7-89FB-548F00C9AF87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseScriptGenerator", "DatabaseScriptGenerator\DatabaseScriptGenerator.csproj", "{66E94349-FC34-4BD7-89FB-548F00C9AF87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseScriptGeneratorConsole", "DatabaseScriptGeneratorConsole\DatabaseScriptGeneratorConsole.csproj", "{7D4D002B-F059-46EE-81DA-86E817ED9F7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseScriptGeneratorConsole", "DatabaseScriptGeneratorConsole\DatabaseScriptGeneratorConsole.csproj", "{7D4D002B-F059-46EE-81DA-86E817ED9F7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseMetadata", "DatabaseMetadata\DatabaseMetadata.csproj", "{2D457134-F47A-4F4C-8A72-6B4DACEC51D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseMetadata", "DatabaseMetadata\DatabaseMetadata.csproj", "{2D457134-F47A-4F4C-8A72-6B4DACEC51D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseMetadataProvider", "DatabaseMetadataProvider\DatabaseMetadataProvider.csproj", "{D55B5FD6-5EB8-4070-8DF3-3B1FDC273ABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseMetadataProvider", "DatabaseMetadataProvider\DatabaseMetadataProvider.csproj", "{D55B5FD6-5EB8-4070-8DF3-3B1FDC273ABE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6BFABBF2-E39C-4B2F-8DB9-2CF49A95922C}"
 	ProjectSection(SolutionItems) = preProject
@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Temp", "Temp\Temp.csproj", "{18FA4942-D9DF-4B09-A37E-77D87F096B65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +42,10 @@ Global
 		{D55B5FD6-5EB8-4070-8DF3-3B1FDC273ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D55B5FD6-5EB8-4070-8DF3-3B1FDC273ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D55B5FD6-5EB8-4070-8DF3-3B1FDC273ABE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18FA4942-D9DF-4B09-A37E-77D87F096B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18FA4942-D9DF-4B09-A37E-77D87F096B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18FA4942-D9DF-4B09-A37E-77D87F096B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18FA4942-D9DF-4B09-A37E-77D87F096B65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
