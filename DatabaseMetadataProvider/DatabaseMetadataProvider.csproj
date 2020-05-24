@@ -19,7 +19,4 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DatabaseMetadata\DatabaseMetadata.csproj" />
-  </ItemGroup>
 </Project>

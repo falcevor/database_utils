@@ -21,7 +21,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseMetadataProvider\DatabaseMetadataProvider.csproj" />
-    <ProjectReference Include="..\DatabaseMetadata\DatabaseMetadata.csproj" />
     <ProjectReference Include="..\DatabaseScriptGenerator\DatabaseScriptGenerator.csproj" />
   </ItemGroup>
 </Project>
