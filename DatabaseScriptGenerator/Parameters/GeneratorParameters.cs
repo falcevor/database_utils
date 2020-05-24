@@ -1,6 +1,6 @@
 ﻿using DatabaseMetadata;
 
-namespace DatabaseScriptGenerator
+namespace DatabaseScriptGenerator.Parameters
 {
     public class GeneratorParameters
     {

@@ -1,8 +1,9 @@
 ﻿using System;
 using DatabaseMetadata;
+using DatabaseScriptGenerator.Parameters;
 using DatabaseScriptGenerator.Templates.Oracle;
 
-namespace DatabaseScriptGenerator
+namespace DatabaseScriptGenerator.Generators
 {
     internal class OracleGenerator : IGenerator
     {

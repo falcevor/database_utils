@@ -1,4 +1,4 @@
-﻿namespace DatabaseScriptGenerator
+﻿namespace DatabaseScriptGenerator.Parameters
 {
     public enum ProcedureActionTypes
     {

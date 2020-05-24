@@ -1,5 +1,6 @@
 ﻿using System;
 using DatabaseMetadata;
+using DatabaseScriptGenerator.Generators;
 
 namespace DatabaseScriptGenerator
 {

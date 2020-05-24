@@ -1,8 +1,9 @@
 ﻿using System;
 using DatabaseMetadata;
+using DatabaseScriptGenerator.Parameters;
 using DatabaseScriptGenerator.Templates.PostgreSQL;
 
-namespace DatabaseScriptGenerator
+namespace DatabaseScriptGenerator.Generators
 {
     internal class PostgreSqlGenerator : IGenerator
     {

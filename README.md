@@ -8,4 +8,3 @@ Features:
 DBCSs:
 1. Oralce
 2. PostgreSQL
-3. Microsoft SQL Server
