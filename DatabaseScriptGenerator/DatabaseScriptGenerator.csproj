@@ -4,96 +4,90 @@
   <PropertyGroup>
     <RootNamespace>DatabaseScriptGenerator</RootNamespace>
     <AssemblyName>DatabaseScriptGenerator</AssemblyName>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <None Remove="Templates\assume-unchanged.sh" />
+    <None Remove="Templates\no-assume-unchanged.sh" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <Compile Update="Templates\Oracle\AddProcedureTemplate.cs">
-      <DependentUpon>AddProcedureTemplate.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AddProcedureTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\Oracle\Helpers\ColumnTemplate.cs">
-      <DependentUpon>ColumnTemplate.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ColumnTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\Oracle\ModifyProcedureTemplate.cs">
-      <DependentUpon>ModifyProcedureTemplate.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ModifyProcedureTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\Oracle\RemoveProcedureTemplate.cs">
-      <DependentUpon>RemoveProcedureTemplate.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RemoveProcedureTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\PostgreSQL\AddProcedureTemplate.cs">
-      <DependentUpon>AddProcedureTemplate.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AddProcedureTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\PostgreSQL\Helpers\ColumnTemplate.cs">
-      <DependentUpon>ColumnTemplate.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ColumnTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\PostgreSQL\ModifyProcedureTemplate.cs">
-      <DependentUpon>ModifyProcedureTemplate.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ModifyProcedureTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\PostgreSQL\RemoveProcedureTemplate.cs">
-      <DependentUpon>RemoveProcedureTemplate.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RemoveProcedureTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   
   <ItemGroup>
-    <Content Update="Templates\Oracle\AddProcedureTemplate.tt">
+    <None Update="Templates\Oracle\AddProcedureTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AddProcedureTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Update="Templates\Oracle\Helpers\ColumnTemplate.tt">
+    </None>
+    <None Update="Templates\Oracle\Helpers\ColumnTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ColumnTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Update="Templates\Oracle\ModifyProcedureTemplate.tt">
+    </None>
+    <None Update="Templates\Oracle\ModifyProcedureTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ModifyProcedureTemplate .cs</LastGenOutput>
-    </Content>
-    <Content Update="Templates\Oracle\RemoveProcedureTemplate.tt">
+      <LastGenOutput>ModifyProcedureTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Oracle\RemoveProcedureTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>RemoveProcedureTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Update="Templates\PostgreSQL\AddProcedureTemplate.tt">
+    </None>
+    <None Update="Templates\PostgreSQL\AddProcedureTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AddProcedureTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Update="Templates\PostgreSQL\Helpers\ColumnTemplate.tt">
+    </None>
+    <None Update="Templates\PostgreSQL\Helpers\ColumnTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ColumnTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Update="Templates\PostgreSQL\ModifyProcedureTemplate.tt">
+    </None>
+    <None Update="Templates\PostgreSQL\ModifyProcedureTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ModifyProcedureTemplate .cs</LastGenOutput>
-    </Content>
-    <Content Update="Templates\PostgreSQL\RemoveProcedureTemplate.tt">
+      <LastGenOutput>ModifyProcedureTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\PostgreSQL\RemoveProcedureTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>RemoveProcedureTemplate.cs</LastGenOutput>
-    </Content>
+    </None>
   </ItemGroup>
   
   <ItemGroup>
@@ -104,4 +98,8 @@
     <ProjectReference Include="..\DatabaseMetadata\DatabaseMetadata.csproj" />
   </ItemGroup>
   
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+ 
 </Project>
