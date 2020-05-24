@@ -30,7 +30,7 @@ namespace DatabaseScriptGenerator.Generators
             }
         }
 
-        public string GenerateViewScript(string name, Table table)
+        public string GenerateViewScript(GeneratorParameters parameters)
         {
             throw new NotImplementedException();
         }
