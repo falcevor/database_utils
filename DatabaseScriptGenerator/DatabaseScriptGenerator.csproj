@@ -1,34 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{66E94349-FC34-4BD7-89FB-548F00C9AF87}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DatabaseScriptGenerator</RootNamespace>
     <AssemblyName>DatabaseScriptGenerator</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <TargetFramework>net472</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -41,100 +16,85 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FunctionActionTypes.cs" />
-    <Compile Include="GeneratorFactory.cs" />
-    <Compile Include="GeneratorParameters.cs" />
-    <Compile Include="IGenerator.cs" />
-    <Compile Include="PostgreSqlGenerator.cs" />
-    <Compile Include="OracleGenerator.cs" />
-    <Compile Include="ProcedureActionTypes.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Templates\Oracle\AddProcedureTemplate.cs">
+    <Compile Update="Templates\Oracle\AddProcedureTemplate.cs">
       <DependentUpon>AddProcedureTemplate.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Templates\Oracle\Helpers\ColumnTemplate.cs">
+    <Compile Update="Templates\Oracle\Helpers\ColumnTemplate.cs">
       <DependentUpon>ColumnTemplate.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Templates\Oracle\ModifyProcedureTemplate .cs">
+    <Compile Update="Templates\Oracle\ModifyProcedureTemplate .cs">
       <DependentUpon>ModifyProcedureTemplate .tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Templates\Oracle\RemoveProcedureTemplate.cs">
+    <Compile Update="Templates\Oracle\RemoveProcedureTemplate.cs">
       <DependentUpon>RemoveProcedureTemplate.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Templates\PostgreSQL\AddProcedureTemplate.cs">
+    <Compile Update="Templates\PostgreSQL\AddProcedureTemplate.cs">
       <DependentUpon>AddProcedureTemplate.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Templates\PostgreSQL\Helpers\ColumnTemplate.cs">
+    <Compile Update="Templates\PostgreSQL\Helpers\ColumnTemplate.cs">
       <DependentUpon>ColumnTemplate.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Templates\PostgreSQL\ModifyProcedureTemplate .cs">
+    <Compile Update="Templates\PostgreSQL\ModifyProcedureTemplate .cs">
       <DependentUpon>ModifyProcedureTemplate .tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Templates\PostgreSQL\RemoveProcedureTemplate.cs">
+    <Compile Update="Templates\PostgreSQL\RemoveProcedureTemplate.cs">
       <DependentUpon>RemoveProcedureTemplate.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Templates\Oracle\AddProcedureTemplate.tt">
+    <Content Update="Templates\Oracle\AddProcedureTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AddProcedureTemplate.cs</LastGenOutput>
     </Content>
-    <Content Include="Templates\Oracle\Helpers\ColumnTemplate.tt">
+    <Content Update="Templates\Oracle\Helpers\ColumnTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ColumnTemplate.cs</LastGenOutput>
     </Content>
-    <Content Include="Templates\Oracle\ModifyProcedureTemplate .tt">
+    <Content Update="Templates\Oracle\ModifyProcedureTemplate .tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ModifyProcedureTemplate .cs</LastGenOutput>
     </Content>
-    <Content Include="Templates\Oracle\RemoveProcedureTemplate.tt">
+    <Content Update="Templates\Oracle\RemoveProcedureTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>RemoveProcedureTemplate.cs</LastGenOutput>
     </Content>
-    <Content Include="Templates\PostgreSQL\AddProcedureTemplate.tt">
+    <Content Update="Templates\PostgreSQL\AddProcedureTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AddProcedureTemplate.cs</LastGenOutput>
     </Content>
-    <Content Include="Templates\PostgreSQL\Helpers\ColumnTemplate.tt">
+    <Content Update="Templates\PostgreSQL\Helpers\ColumnTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ColumnTemplate.cs</LastGenOutput>
     </Content>
-    <Content Include="Templates\PostgreSQL\ModifyProcedureTemplate .tt">
+    <Content Update="Templates\PostgreSQL\ModifyProcedureTemplate .tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ModifyProcedureTemplate .cs</LastGenOutput>
     </Content>
-    <Content Include="Templates\PostgreSQL\RemoveProcedureTemplate.tt">
+    <Content Update="Templates\PostgreSQL\RemoveProcedureTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>RemoveProcedureTemplate.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DatabaseMetadata\DatabaseMetadata.csproj">
-      <Project>{2d457134-f47a-4f4c-8a72-6b4dacec51d5}</Project>
-      <Name>DatabaseMetadata</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\DatabaseMetadata\DatabaseMetadata.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

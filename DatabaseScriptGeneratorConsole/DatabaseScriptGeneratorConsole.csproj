@@ -1,36 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D4D002B-F059-46EE-81DA-86E817ED9F7E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>DatabaseScriptGeneratorConsole</RootNamespace>
     <AssemblyName>DatabaseScriptGeneratorConsole</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <TargetFramework>net472</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -43,25 +17,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DatabaseMetadataProvider\DatabaseMetadataProvider.csproj">
-      <Project>{d55b5fd6-5eb8-4070-8df3-3b1fdc273abe}</Project>
-      <Name>DatabaseMetadataProvider</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DatabaseMetadata\DatabaseMetadata.csproj">
-      <Project>{2d457134-f47a-4f4c-8a72-6b4dacec51d5}</Project>
-      <Name>DatabaseMetadata</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DatabaseScriptGenerator\DatabaseScriptGenerator.csproj">
-      <Project>{66e94349-fc34-4bd7-89fb-548f00c9af87}</Project>
-      <Name>DatabaseScriptGenerator</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\DatabaseMetadataProvider\DatabaseMetadataProvider.csproj" />
+    <ProjectReference Include="..\DatabaseMetadata\DatabaseMetadata.csproj" />
+    <ProjectReference Include="..\DatabaseScriptGenerator\DatabaseScriptGenerator.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
